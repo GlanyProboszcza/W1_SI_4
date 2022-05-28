@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Computer_Painter", "Computer_Painter\Computer_Painter.vcxproj", "{376A4268-982C-4DEE-9E7C-C688A0889521}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Debug|x64.ActiveCfg = Debug|x64
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Debug|x64.Build.0 = Debug|x64
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Debug|x86.ActiveCfg = Debug|Win32
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Debug|x86.Build.0 = Debug|Win32
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Release|x64.ActiveCfg = Release|x64
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Release|x64.Build.0 = Release|x64
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Release|x86.ActiveCfg = Release|Win32
+		{376A4268-982C-4DEE-9E7C-C688A0889521}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D49E4705-D4BB-4805-834B-68E0A4DEB5EF}
+	EndGlobalSection
+EndGlobal
