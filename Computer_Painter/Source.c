@@ -3,14 +3,16 @@
 #include <stdio.h>
 #include <conio.h>  
 
-// all variables which program will use 
-int no_rows, row, column, user_choice, j;
+// global variables which program will use 
+int no_rows, row, column, user_choice, j, space;
 
 
 // all functios with specific shapes which main() will use
 
+
+void drawRectangle()
 // Function to print solid rectangle
-void drawRectangle() {
+{
     for (column = 0; column <= no_rows - 1; column++) 
     {
         for (row = 0; row <= no_rows - 1; row++)
@@ -21,8 +23,10 @@ void drawRectangle() {
     }
 }
 
+
+void drawTriangle()
 // Function to print solid triangle
-void drawTriangle() {
+{
     for (row = 0; row <= no_rows - 1; row++)
     {
         for (column = 0; column <= row; column++)
@@ -33,8 +37,10 @@ void drawTriangle() {
     }
 }
 
+
+void drawChangingPairs()
 // Function to print rectangle with changing pairs of: Xo and oX
-void drawChangingPairs() {
+{
     for (row = 0; row <= no_rows - 1; row++)
     {
         for (j = 0; j <= no_rows - 1; j++) 
@@ -45,8 +51,12 @@ void drawChangingPairs() {
         printf("\n");
     }
 }
-// Function to print hollow rectangle
-void drawFrame() {
+
+void drawFrame()
+/* Function to print hollow rectangle
+* https://www.geeksforgeeks.org/program-to-print-hollow-rectangle-or-square-star-patterns/
+*/
+{
     for (row = 0; row <= no_rows -1 ; row++)
     {
         for (column = 0; column <= no_rows - 1; column++)
@@ -54,13 +64,17 @@ void drawFrame() {
             if (row == 0 || row == no_rows - 1 || column == 0 || column == no_rows - 1)
                 printf("X");
             else
-                printf("o");
+                printf(".");
         }
         printf("\n");
     }
 }
-// Function to print hollow rectangle with diagonal
-void drawX() {
+
+void drawX()
+/* Function to print hollow rectangle with diagonal
+* used source: https://codeforwin.org/2017/09/c-program-print-hollow-square-diagonal-star-pattern.html
+*/ 
+{
     for (row = 1; row <= no_rows; row++)
     {
         for (column = 1; column <= no_rows; column++)
@@ -75,34 +89,52 @@ void drawX() {
         printf("\n");
     }
 }
-// Fuction to print diamond pattern
-void drawDiamond() {
-    int front_space = 0;
-    int back_space = no_rows % 2 == 0 ? 1 : 2;
-    for (row = 0; row < no_rows; row++)
+
+void drawDiamond()
+/* Fuction to print diamond pattern. Used sources:
+* https://youtu.be/PYBzYPdtLM8
+* https://youtu.be/F9VTF73SObM
+* https://youtu.be/vE08hH_c4oY
+*
+* https://www.javatpoint.com/pyramid-patterns-in-c
+*/
+{
+    // top of the diamond
+    for (row = 1; row <= no_rows; row++)
     {
-        for (column = 0; column < no_rows - back_space; column++)
+        for (space = 1; space <= no_rows - row; space++)
         {
-            if (column <= no_rows / 2 - 1 - front_space || column >= no_rows / 2 - 1 + front_space)
-                printf(".");
-            else
-                printf("X");
+            printf(" ");
+        }
+        for (column = 1; column <= 2 * row - 1; column++)
+        {
+            printf("X");
         }
         printf("\n");
-        if (row < no_rows / 2)
-            front_space++;
-        else
-            front_space--;
+    }
+    // bottom of the diamond
+    for (row = no_rows - 1 ; row >= 1; row--)
+    {
+        for (space = 1; space <= (no_rows - row); space++) 
+        {
+            printf(" ");
+        }
+        for (column = 1; column <= 2 * row - 1; column++)
+        {
+            printf("X");
+        }
+        printf("\n");
     }
 }
+
 // Fuction to print chess pattern
 void drawChess() {
 
 
 }
 // Function to print "Frame inside frame"
-void drawFrameInsideFrame() {
-
+void drawFrameInsideFrame() 
+{
 
 }
 
@@ -115,66 +147,84 @@ int main()
 
     do 
     {
-        printf("\nHow many characters you would like to use? >>  ");
-        scanf("%d", &no_rows);
-
-
         printf("What shape would you like to paint?\n\n1. Rectangle\n2. Triangle\n3. Alternatery changing pairs\n4. Rectangle with frame\n5. Rectangle with diagonals\n"
-            "6. Diamnod\n7. Chess\n8. Frame inside frame\n  >>  ");
+            "6. Diamnod\n>>>   ");
         scanf("%d", &user_choice);
 
-        // program will use the switch statment which allows us to execute one code block among many alternatives.
-        switch (user_choice) {
+
+
+        /* program will use the switch statment which allows us to execute one code block among many alternatives.
+        * used source:
+        * https://www.programiz.com/c-programming/c-switch-case-statement
+        * http://mikrokontrolery.blogspot.com/2011/02/instrukcja-warunkowa-switch-case.html
+        */
+        switch (user_choice) 
+        {
+            printf("\nHow many characters you would like to use? >>>  ");
+            scanf("%d", &no_rows);
+            printf("\n");
 
         case 1:
+            printf("YOUR RECTANGLE\n\n");
             drawRectangle();
             printf("\n");
 
             break;
 
         case 2:
+            printf("YOUR TRIANGLE\n\n");
             drawTriangle();
             printf("\n");
 
             break;
 
         case 3:
+            printf("YOUR CHANGING PAIRS PATTERNT\n\n");
             drawChangingPairs();
             printf("\n");
 
             break;
 
         case 4:
+            printf("YOUR RECTANGLE FRAME PATTERN\n\n");
             drawFrame();
             printf("\n");
 
             break;
 
         case 5:
+            printf("YOUR RECTANGLE WITH DIAGONALS\n\n");
             drawX();
             printf("\n");
 
             break;
 
         case 6:
+            printf("YOUR DIAMOND\n\n");
             drawDiamond();
             printf("\n");
 
             break;
 
-        case 7:
-            drawChess();
-            printf("\n");
-
-            break;
-
-        case 8:
-            drawFrameInsideFrame();
-            printf("\n");
-
-            break;
+    /*
+     *    case 7:
+     *       printf("YOUR CHESS RECTANGLE\n\n");
+     *       drawChess();
+     *       printf("\n");
+     *
+     *       break;
+     *
+     *   case 8:
+     *       printf("YOUR RECTANGLE WITH FRAME INSIDE FRAME\n\n");
+     *       drawFrameInsideFrame();
+     *       printf("\n");
+     *
+     *       break;
+    */
 
         default:
+            printf("\n-----Invalid choice, try again!-----\n");
+            printf("\n");
             break;
         }
 
